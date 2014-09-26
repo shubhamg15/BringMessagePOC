@@ -1,0 +1,145 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bring.no/sporing/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ConsignmentSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Consignment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TotalWeight">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:float">
+                      <xs:attribute type="xs:string" name="unitCode"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="TotalVolume">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:float">
+                      <xs:attribute type="xs:string" name="unitCode"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="PackageSet">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Package">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="StatusDescription"/>
+                          <xs:element type="xs:string" name="Descriptions"/>
+                          <xs:element type="xs:string" name="ProductName"/>
+                          <xs:element type="xs:short" name="ProductCode"/>
+                          <xs:element type="xs:string" name="Brand"/>
+                          <xs:element name="Weight">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:float">
+                                  <xs:attribute type="xs:string" name="unitCode"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Length">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:byte">
+                                  <xs:attribute type="xs:string" name="unitCode"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Width">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:byte">
+                                  <xs:attribute type="xs:string" name="unitCode"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Height">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:byte">
+                                  <xs:attribute type="xs:string" name="unitCode"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Volume">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:float">
+                                  <xs:attribute type="xs:string" name="unitCode"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="PickupCode"/>
+                          <xs:element type="xs:string" name="LastRetrievalDate"/>
+                          <xs:element type="xs:string" name="SenderName"/>
+                          <xs:element name="RecipientAddress">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="AddressLine1"/>
+                                <xs:element type="xs:string" name="AddressLine2"/>
+                                <xs:element type="xs:short" name="PostalCode"/>
+                                <xs:element type="xs:string" name="City"/>
+                                <xs:element type="xs:string" name="CountryCode"/>
+                                <xs:element type="xs:string" name="Country"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="EventSet">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Event" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="Description"/>
+                                      <xs:element type="xs:string" name="Status"/>
+                                      <xs:element name="RecipientSignature">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="Name"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element type="xs:int" name="UnitId"/>
+                                      <xs:element type="xs:string" name="UnitInformationUrl" minOccurs="0"/>
+                                      <xs:element type="xs:string" name="UnitType"/>
+                                      <xs:element type="xs:short" name="PostalCode"/>
+                                      <xs:element type="xs:string" name="City"/>
+                                      <xs:element type="xs:string" name="CountryCode"/>
+                                      <xs:element type="xs:string" name="Country"/>
+                                      <xs:element type="xs:dateTime" name="OccuredAtIsoDateTime"/>
+                                      <xs:element type="xs:string" name="OccuredAtDisplayDate"/>
+                                      <xs:element type="xs:float" name="OccuredAtDisplayTime"/>
+                                      <xs:element type="xs:string" name="ConsignmentEvent"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="previousPackageId"/>
+                        <xs:attribute type="xs:string" name="packageId"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="previousConsignmentId"/>
+            <xs:attribute type="xs:string" name="consignmentId"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
